@@ -1,0 +1,178 @@
+{
+	"geode": "5.10.1",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "hman.frame-counter",
+	"name": "Frame Counter",
+	"version": "v1.1.0",
+	"developer": "Hman",
+	"description": "Live click-gap HUD: counts how many frames you had between inputs (10-15, 7-9, 5-6, 4, 3, 2, 1, sub-frame CBS). Works for live play, macros and bots. Sound alerts + FC button in the pause menu for settings.",
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"name": "Enable HUD",
+			"description": "Show the frame counter HUD in levels.",
+			"default": true
+		},
+		"hud-scale": {
+			"type": "float",
+			"name": "HUD Scale",
+			"default": 0.6,
+			"min": 0.3,
+			"max": 1.5,
+			"control": {
+				"slider": true
+			}
+		},
+		"hud-opacity": {
+			"type": "float",
+			"name": "HUD Opacity",
+			"default": 0.9,
+			"min": 0.1,
+			"max": 1.0,
+			"control": {
+				"slider": true
+			}
+		},
+		"compact-mode": {
+			"type": "bool",
+			"name": "Compact Mode",
+			"description": "Smaller HUD: hides extra readouts and empty CBS / 16+ rows.",
+			"default": false
+		},
+		"color-code": {
+			"type": "bool",
+			"name": "Color-coded Rows",
+			"description": "Loose gaps are green, tight gaps are red.",
+			"default": true
+		},
+		"show-session": {
+			"type": "bool",
+			"name": "Show Session Totals",
+			"description": "Adds the session total (all attempts) in brackets next to each count.",
+			"default": false
+		},
+		"show-tightest": {
+			"type": "bool",
+			"name": "Show Tightest Gap",
+			"default": true
+		},
+		"show-hold": {
+			"type": "bool",
+			"name": "Show Shortest Hold",
+			"description": "Shortest press-to-release time this attempt.",
+			"default": true
+		},
+		"show-tps": {
+			"type": "bool",
+			"name": "Show TPS",
+			"description": "Detected physics steps per second (frames are physics steps).",
+			"default": true
+		},
+		"cbs-toast": {
+			"type": "bool",
+			"name": "(with cbs) Notice",
+			"description": "Flashes '(with cbs)' at the top of the screen for 1 second when a sub-frame gap happens.",
+			"default": true
+		},
+		"summary-on-complete": {
+			"type": "bool",
+			"name": "Summary On Completion",
+			"description": "Popup with the attempt's counts when you beat a level (not practice).",
+			"default": true
+		},
+		"save-stats": {
+			"type": "bool",
+			"name": "Save Stats File",
+			"description": "Appends session stats per level to a text file in the mod's save folder when you leave a level.",
+			"default": true
+		},
+		"sound-rule": {
+			"type": "string",
+			"name": "Sound Trigger",
+			"description": "Play a sound when an input matches this. 'X or tighter' = X frames or fewer, including sub-frame.",
+			"default": "Off",
+			"one-of": [
+				"Off",
+				"Any input",
+				"Sub-frame (CBS)",
+				"1 or tighter",
+				"2 or tighter",
+				"3 or tighter",
+				"4 or tighter",
+				"1",
+				"2",
+				"3",
+				"4",
+				"5-6",
+				"7-9",
+				"10-15"
+			]
+		},
+		"sound-effect": {
+			"type": "string",
+			"name": "Sound Effect",
+			"description": "Built-in game sound to use.",
+			"default": "Achievement",
+			"one-of": [
+				"Achievement",
+				"Buy",
+				"Click",
+				"Quit",
+				"Reward",
+				"Key",
+				"Crystal"
+			]
+		},
+		"sound-file": {
+			"type": "file",
+			"name": "Custom Sound File",
+			"description": "Optional: pick your own sound (.ogg / .mp3 / .wav). Overrides the built-in effect. Clear it to go back.",
+			"default": "",
+			"control": {
+				"dialog": "open",
+				"filters": [
+					{
+						"files": [
+							"*.ogg",
+							"*.mp3",
+							"*.wav"
+						],
+						"description": "Audio"
+					}
+				]
+			}
+		},
+		"sound-volume": {
+			"type": "float",
+			"name": "Sound Volume",
+			"default": 0.8,
+			"min": 0.0,
+			"max": 1.0,
+			"control": {
+				"slider": true
+			}
+		},
+		"sound-cooldown": {
+			"type": "float",
+			"name": "Sound Cooldown (s)",
+			"description": "Minimum time between sounds, so spam doesn't turn into noise.",
+			"default": 0.08,
+			"min": 0.0,
+			"max": 1.0,
+			"control": {
+				"slider": true
+			}
+		},
+		"reset-position": {
+			"type": "bool",
+			"name": "Reset HUD Position",
+			"description": "Turn on, then enter a level: the HUD goes back to the top-left and this switches itself off. To move the HUD: pause and drag it.",
+			"default": false
+		}
+	}
+}
